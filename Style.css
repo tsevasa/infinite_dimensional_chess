@@ -1,5 +1,4 @@
 #idc-text{
-    
     overflow: visible;
     margin-left:25%;
     margin-right:25%;
@@ -47,4 +46,9 @@
 #idc-nav-panel-header{
     position: relative;
     text-align: center;
+}
+
+.MathJax_Display, .MJXc-display, .MathJax_SVG_Display {
+    overflow-x: scroll;
+    overflow-y: hidden;
 }
