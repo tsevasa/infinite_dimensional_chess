@@ -1,0 +1,50 @@
+#idc-text{
+    
+    overflow: visible;
+    margin-left:25%;
+    margin-right:25%;
+    padding:0;
+    font-family: "Computer Modern Serif", serif;
+    text-align: justify;
+}
+
+.bottom-space {
+    margin-bottom: 0.1cm;
+}
+
+.bottom-space-large {
+    margin-bottom: 0.5cm;
+}
+
+.idc-image{
+    position: relative;
+    min-height: 100%;
+    min-width: 100%;
+    max-height: 100%;
+    max-width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#idc-nav-panel{
+    position: fixed;
+    display: block;
+    list-style-type: none;
+    margin: 0;
+    padding: 0.5%;
+    top:25%;
+    left: 1%;
+    width: 20%;
+    border: black;
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 20px;
+    background-color: #f1f1f1;
+    font-family: "Computer Modern Serif", serif;
+    font-size: 20px;
+}
+
+#idc-nav-panel-header{
+    position: relative;
+    text-align: center;
+}
