@@ -88,7 +88,8 @@ The license allows for commercial use.
                 In particular, this means that the game is not played on an $8\times 8$ board, but instead on an $8\times 8\times 8 \ldots$ board.
                 In fact, we can also play the game on any other infinite-dimensional board of sidelength $n\in\mathbb{N}$. The definition of the piece movements is extended
                 from the two-dimensional board to the infinite-dimensional sidelength-$n$ integer lattice in a natural way. The coordinates of a single piece are denoted
-                by an integer vector $(x_1,x_2,\ldots)$. We will need the following definitions from here on:
+                by an integer vector $(x_1,x_2,\ldots)$. The $\sup$ norm $||\cdot||_\infty$ will be useful from here on out, which is defined as
+                $||(x_1,x_2,\ldots)||_\infty = \sup\{|x_1|,|x_2|,\ldots\}$. We will need the following piece movement definitions from here on:
             </p>
             
             <ul>
@@ -209,7 +210,7 @@ The license allows for commercial use.
                 For every $n\in\mathbb{N}$ and every non-terminal node $y$ of $T$, we place the "open passage" configuration (figure <a href="#8x8-image">1a</a>) into the
                 2D slice that contains square $\vec k^{(n)}(y)$ and is parallel to the $(\mathbf{p,q})$-plane. We also place the "open passage" configuration
                 around coordinates $\vec k^{(-2)}$, $\vec k^{(-1)}$ and $\vec k^{(0)}$ in the same way. The white king is placed on square $\vec k^{(-2)}$ instead of
-                a pawn and the black king is placed on square $\vec k^{(0)}$ instead of a pawn. Similarly, for every $n\in\mathbb{N}$ and every terminal leaf node $y$ of $T$,
+                a pawn, the pawn on $\vec k^{(-1)}$ is removed and the black king is placed on square $\vec k^{(0)}$ instead of a pawn. Similarly to above, for every $n\in\mathbb{N}$ and every terminal leaf node $y$ of $T$,
                 we place the "end trap" configuration (figure <a href="#8x8-image">1c</a>) around coordinates $\vec k^{(n)}(y)$ in the same way. Finally, all other two-dimensional
                 slices parallel to the $(\mathbf{p,q})$-plane are filled up with the "closed passage" configuration (figure <a href="#8x8-image">1b</a>).
             </p>
@@ -326,7 +327,8 @@ The license allows for commercial use.
                 As before, we place down the open passages at
                 non-terminal node coordinates along the $(\mathbf{p,q_1,q_2})$-plane and the end traps at terminal nodes.
                 We again place open passages at $\vec k^{(-2)}$, $\vec k^{(-1)}$, $\vec k^{(0)}$ in a similar fashion, while we initialize the white king at $\vec k^{(-2)}$
-                and the black king at $\vec k^{(0)}$ respectively. Finally, we place closed passages everywhere else along the $(\mathbf{p,q_1,q_2})$-plane slices.
+                and the black king at $\vec k^{(0)}$ respectively, as well as remove the white pawn on $\vec k^{(-1)}$.
+                Finally, we place closed passages everywhere else along the $(\mathbf{p,q_1,q_2})$-plane slices.
             </p>
 
             <p>&nbsp;&nbsp;&nbsp;&nbsp;As before, the position is very claustrophobic. The closed passage is completely
