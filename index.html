@@ -200,23 +200,27 @@ The license allows for commercial use.
                 squares encoding the history of $y,y'$ up to the level $n$ such that $|x^n_i-x'^{n+1}_i|>1$. Finally, for similar reasons to the above,
                 note that $\vec k^{(-2)}$ is only adjacent to
                 $\vec k^{(-1)}$, which in turn is only adjacent to $\vec k^{(0)}$.
-                This concludes the argument on the embedding.
+                This concludes the argument on the embedded full tree, which is pictured in figure <a href="#tree-image">1</a>.
             </p>
+
+            <img src="img/tree.png" id="tree-image" align="center">
+            <center><p><b>Figure 1:</b> The structure of the squares of the embedded full tree on the chessboard. Note that the three dots ($\ldots$) stand
+                for uncountably many more branches.</p></center>
 
             <p>&nbsp;&nbsp;&nbsp;&nbsp;Having embedded the desired tree-like structure into the chessboard, we now need to demonstrate that the black king can be
                 confined into moving along any given tree in such a way that he cannot ever deviate from the correct squares.
-                This is achieved via the configurations shown in figure <a href="#8x8-image">1</a>. All these configurations are two-dimensional slices of the chessboard,
+                This is achieved via the configurations shown in figure <a href="#8x8-image">2</a>. All these configurations are two-dimensional slices of the chessboard,
                 where all but the first two coordinates $(\mathbf{p,q})$ are being held constant. Now let $T\subseteq \left( 2^\omega \right)^\omega$ be an arbitrary nonempty tree.
-                For every $n\in\mathbb{N}$ and every non-terminal node $y$ of $T$, we place the "open passage" configuration (figure <a href="#8x8-image">1a</a>) into the
+                For every $n\in\mathbb{N}$ and every non-terminal node $y$ of $T$, we place the "open passage" configuration (figure <a href="#8x8-image">2a</a>) into the
                 2D slice that contains square $\vec k^{(n)}(y)$ and is parallel to the $(\mathbf{p,q})$-plane. We also place the "open passage" configuration
                 around coordinates $\vec k^{(-2)}$, $\vec k^{(-1)}$ and $\vec k^{(0)}$ in the same way. The white king is placed on square $\vec k^{(-2)}$ instead of
                 a pawn, the pawn on $\vec k^{(-1)}$ is removed and the black king is placed on square $\vec k^{(0)}$ instead of a pawn. Similarly to above, for every $n\in\mathbb{N}$ and every terminal leaf node $y$ of $T$,
-                we place the "end trap" configuration (figure <a href="#8x8-image">1c</a>) around coordinates $\vec k^{(n)}(y)$ in the same way. Finally, all other two-dimensional
-                slices parallel to the $(\mathbf{p,q})$-plane are filled up with the "closed passage" configuration (figure <a href="#8x8-image">1b</a>).
+                we place the "end trap" configuration (figure <a href="#8x8-image">2c</a>) around coordinates $\vec k^{(n)}(y)$ in the same way. Finally, all other two-dimensional
+                slices parallel to the $(\mathbf{p,q})$-plane are filled up with the "closed passage" configuration (figure <a href="#8x8-image">2b</a>).
             </p>
 
             <img src="img/8x8.png" class="idc-image" id="8x8-image" align="center">
-            <center><p><b>Figure 1:</b> The three different kinds of 2D slices of the $8\times 8\times 8 \ldots$ chess board (up to kings).
+            <center><p><b>Figure 2:</b> The three different kinds of 2D slices of the $8\times 8\times 8 \ldots$ chess board (up to kings).
                 The vertical axis is the principal axis with coordinate $\mathbf{p}$, while the horizontal axis is the second axis with
                 coordinate $\mathbf{q}$. All unseen dimensions are held constant for each figure. Important undefended pawns are marked.</p></center>
 
@@ -321,7 +325,7 @@ The license allows for commercial use.
 
             <p>&nbsp;&nbsp;&nbsp;&nbsp;Embedding an arbitrary tree $T\subseteq \left( 2^\omega \right)^\omega$ into the chessboard
                 works like in the previous case. The only difference is the specific slice layout of the three building blocks,
-                which are three dimensional slices of the chess board this time, as shown in figure <a href="#3x3-image">2</a>.
+                which are three dimensional slices of the chess board this time, as shown in figure <a href="#3x3-image">3</a>.
                 Once again, these slices depict the position in the first three coordinates, with the top-down axis between the $3\times 3$
                 boards being the principal axis, while all other coordinates are kept constant.
                 As before, we place down the open passages at
@@ -338,7 +342,7 @@ The license allows for commercial use.
             </p>
 
             <img src="img/3x3.png" class="idc-image" id="3x3-image" align="center">
-            <center><p><b>Figure 2:</b> The three different kinds of 3D slices of the $3\times 3\times 3 \ldots$ chess board (up to kings).
+            <center><p><b>Figure 3:</b> The three different kinds of 3D slices of the $3\times 3\times 3 \ldots$ chess board (up to kings).
                 The top-down axis between the boards is the principal axis with coordinate $\mathbf{p}$, while on every individual
                 board the vertical axis is the second axis with coordinate $\mathbf{q_1}$ and the horizontal axis is the third axis with coordinate
                 $\mathbf{q_2}$. All unseen dimensions are held constant for each figure. Important undefended pawns are marked.</p></center>

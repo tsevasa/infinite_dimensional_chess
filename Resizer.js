@@ -12,10 +12,13 @@ function onresizeFormatter(){
         navpanel.style.visibility = 'hidden';
         text.style.marginLeft = 0;
         text.style.marginRight = 0;
+    } else if(window.innerWidth < 900){
+        navpanel.style.fontSize = '10px';
     } else{
         navpanel.style.visibility = 'visible';
         text.style.marginLeft = '25%';
         text.style.marginRight = '25%';
+        navpanel.style.fontSize = '20px';
     }
 }
 
