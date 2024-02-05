@@ -37,7 +37,7 @@ The license allows for commercial use.
         <link rel="icon" href="img/favicon.png" />
         <link rel="shortcut icon" href="img/favicon.png" />
         <link rel="stylesheet" href="Style.css">
-		<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+		<script type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer></script>
         <script>
             MathJax = {
               tex: {
@@ -275,7 +275,7 @@ The license allows for commercial use.
 
             $$\begin{equation}
             \begin{split}
-                \vec k^{(1)}(y) &= (\mathbf{-1,-1,-1},-1,y^{(1)}_1,-1,0,0,y^{(1)}_2,1,0,1,y^{(1)}_2,1,0,1,y^{(1)}_3,1,0,\ldots) \\
+                \vec k^{(1)}(y) &= (\mathbf{-1,-1,-1},-1,y^{(1)}_1,-1,0,0,y^{(1)}_2,1,0,1,y^{(1)}_3,1,0,1,y^{(1)}_4,1,0,\ldots) \\
                 &\;\;\vdots\\
                 \vec k^{(n)}(y) &= (\mathbf{-1,-1,-1},p_1^n,x_1^n,p_2^n,x_2^n,p_3^n,x_3^n,\ldots)\\
                 & \text{with } x_i^n =
@@ -324,7 +324,7 @@ The license allows for commercial use.
                 Once again, these slices depict the position in the first three coordinates, with the top-down axis between the $3\times 3$
                 boards being the principal axis, while all other coordinates are kept constant.
                 As before, we place down the open passages at $\vec k^{(-2)}$, $\vec k^{(-1)}$ and at
-                non-terminal node coordinates along the $(\mathbf{p,q_1,q_2})$-plane, the end traps at terminal nodesa and closed passages everywhere else.
+                non-terminal node coordinates along the $(\mathbf{p,q_1,q_2})$-plane, the end traps at terminal nodes and closed passages everywhere else.
                 We again initialize the kings at $\vec k^{(-2)}$
                 and $\vec k^{(0)}$ respectively.
             </p>
