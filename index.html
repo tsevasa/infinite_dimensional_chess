@@ -1,5 +1,5 @@
 <!--
-Copyright Disclaimer: The current work by Andreas Tsevas and Matthew Bolan is licensed under CC BY 4.0: Creative Commons Attribution.
+Copyright Disclaimer: The current work by Matthew Bolan and Andreas Tsevas is licensed under CC BY 4.0: Creative Commons Attribution.
 You are free to distribute, remix, adapt, and build upon the material in any medium or format, so long as attribution is given to the creators.
 The license allows for commercial use. 
 -->
@@ -57,11 +57,12 @@ The license allows for commercial use.
             <li class="bottom-space-large"><a href="#sec-conclusion">4. Conclusion and Outlook</a></li>
         </ul> 
 
-
         <div id="idc-text">
             <center><h1>Transfinite Game Values in Infinite-Dimensional Chess</h1></center>
+            <center><em>An application of the non-compactness of the infinite-dimensional unit ball</em></center>
+            <br>
 
-            <center class="bottom-space">A blog post created by Andreas Tsevas and Matthew Bolan</center>
+            <center class="bottom-space">A blog post created by Matthew Bolan and Andreas Tsevas</center>
             <center class="bottom-space"><em>February 4, 2024</em></center>
 
             <center><h3>Summary</h3></center>
@@ -74,8 +75,8 @@ The license allows for commercial use.
             <h2 id="sec-intro">1. Introduction</h2>
 
             <p>&nbsp;&nbsp;&nbsp;&nbsp;Many interesting variations of chess have been studied in the mathematical literature before,
-                including three-dimensional chess and infinite chess, which even has an infinite game tree.
-                The latter led to an interesting observation: There exist positions where White can always force mate in finite time,
+                including three-dimensional chess and infinite chess.
+                The latter led to an interesting observation: There exist positions on the infinite board where White can always force mate in finite time,
                 but Black can choose to delay mate by any unbounded amount of moves, as shown in <a href="#MO2011Checkmate">[1]</a> <a href="#evans2013transfinite">[2]</a>.
                 This led to the consideration of game values, which are defined for chess positions inductively as follows:
                 If Black is in checkmate, the position has game value $0$. Otherwise if Black is to move and all available moves lead to a position with an assigned game value,
@@ -84,11 +85,11 @@ The license allows for commercial use.
                 in open games is that the positions having an ordinal game value are precisely the positions that are winning for White.
                 This justifies their use as a generalized version of the "mate-in-$n$" notion in finite chess.</p>
 
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;In the present blog post, we don't consider the scenario of increasing the board sidelength to infinity,
-                but instead the properties of the game if the dimensionality of the chessboard is increased to infinity instead.
-                In particular, this means that the game is not played on an $8\times 8$ board, but instead on an $8\times 8\times 8 \ldots$ board,
-                or any other infinite-dimensional board of sidelength $n\in\mathbb{N}$ for that matter. The definition of the piece movements is extended
-                from the two-dimensional case to the integer lattice $\{1,\ldots,n\}^\mathbb{N}$ in the most natural way. The coordinates of a single piece are denoted
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;In the present blog post, we consider making the chess board infinite in a new way, namely by
+                increasing the dimensionality of the chessboard rather than the sidelength.
+                In particular, this means that the game is not played on an $8\times 8$ board, but instead on an $8\times 8\times 8 \ldots$ board.
+                In fact, we can also play the game on any other infinite-dimensional board of sidelength $n\in\mathbb{N}$. The definition of the piece movements is extended
+                from the two-dimensional case to the $n$-sided infinite integer lattice in a natural way. The coordinates of a single piece are denoted
                 by an integer vector $(x_1,x_2,\ldots)$. We will need the following definitions from here on:
             </p>
             
@@ -105,12 +106,13 @@ The license allows for commercial use.
                     The notions of check, checkmate and stalemate work exactly like in normal chess.</li>
             </ul>
 
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;In the end, we will consider a single rule variation, namely further limiting the movement of the kings such that they
-                can only change finitely many of their coordinates in a single move. The moves of the remaining pieces (queens, knights and bishops),
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;The moves of the remaining pieces (queens, knights and bishops),
                 the exact mechanism of pawn captures and special moves like castling, double pawn moves, promotion and en passant,
                 as well as the existence of special game rules like threefold repetition and the 50-move rule are completely irrelevant for the proofs in this blog post.
-                While one should specify all these rules in the infinite-dimensional case, if one were to play this game variant in other positions,
-                all positions in this blog post do not depend on these extra rules and they can be omitted.</p>
+                While one should specify all these rules in the infinite-dimensional case if one were to play this game variant in other positions,
+                all positions in this blog post do not depend on these extra rules and they can be omitted. In the last section, we will consider a small variation to
+                the rules, namely further limiting the movement of the kings such that they
+                can only change finitely many of their coordinates in a single move.</p>
             
             <p>&nbsp;&nbsp;&nbsp;&nbsp;Our main result is</p>
 
@@ -123,7 +125,7 @@ The license allows for commercial use.
                 The game is played between two players, Black and White, with White's role in this game being that of a passive observer.
                 Meanwhile, Black starts by standing on the root node of the tree $T$ and, at any stage of the game, Black selects an immediate successor node to move to.
                 The game ends immediately with Black losing, if and only if Black moves to a leaf node. It is clear that White will win this game if and only
-                if $T$ is well-founded and that the game value of the <em>climbing-through-$T$</em> game is the same as the ordinal rank of $T$.
+                if $T$ is well-founded. Furthermore, the game value of the <em>climbing-through-$T$</em> game is the same as the ordinal rank of $T$.
                 As trees on $2^\omega$ of arbitrarily high rank of size continuum exist, it suffices to show that we can embed a game equivalent to
                 <em>climbing-through-$T$</em> into infinite-dimensional chess.</p>
 
@@ -136,19 +138,32 @@ The license allows for commercial use.
             <p>&nbsp;&nbsp;&nbsp;&nbsp;In this section, we will use the convention that given the coordinate vector $\vec k=(\mathbf{p,q},x_1,x_2,x_3\ldots)$,
                 its first entry $\mathbf p$ stands for the position along the principal axis, while all the coordinates range from $-4$ to $3$ in every dimension.
                 First we consider how to embed the full tree $\left( 2^\omega \right)^\omega$ into the chessboard by describing the placement of its nodes as squares
-                on the chessboard. Given a sequence $\left(y^{(n)}\right)_{n\in\mathbb{N}}$ of
-                elements $y^{(n)}\in \{-1,1\}^\mathbb{N}$ such that $y^{(n)} = \left( y^{(n)}_1, y^{(n)}_2, y^{(n)}_3, \ldots \right)$, the corresponding branch
-                $y = (y^{(n)})_{n\in\mathbb{N}}$ of the full tree $\left(2^\omega\right)^\omega$ is constructed as follows. 
+                on the chessboard. In the actual chess game, the black king will be walking through the squares of the embedded tree - one node per move -
+                until ultimatelly meeting his demise in a leaf node.
             </p>
 
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;We recursively define the squares</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;First we define the initialization squares
+            </p>
 
             $$\begin{equation}
             \begin{split}
                 \vec k^{(-2)} &= (\mathbf{0,-4},0,0,0,0,0,0,0,0,0,0,0,0,\ldots) \\
                 \vec k^{(-1)} &= (\mathbf{0,-4},1,0,1,0,1,0,1,0,1,0,1,0,\ldots) \\
                 \vec k^{(0)} &= (\mathbf{0,-4},2,1,2,0,2,1,2,0,2,1,2,0,\ldots) \\
+            \end{split}
+            \end{equation}$$
+
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;where the white king starts on $\vec k^{(-2)}$ and the black king starts on the root node of the tree, $\vec k^{(0)}$.
+            </p>
+
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;Given a sequence $\left(y^{(n)}\right)_{n\in\mathbb{N}}$ of
+                elements $y^{(n)}\in \{-1,1\}^\mathbb{N}$ such that $y^{(n)} = \left( y^{(n)}_1, y^{(n)}_2, y^{(n)}_3, \ldots \right)$, the corresponding branch
+                $y = (y^{(n)})_{n\in\mathbb{N}}$ of the full tree $\left(2^\omega\right)^\omega$ is constructed as follows. We recursively define the squares</p>
+
+            $$\begin{equation}
+            \begin{split}
                 \vec k^{(1)}(y) &= (\mathbf{0,-4},2,2,2,y^{(1)}_1,2,2,2,0,2,2,2,y^{(1)}_2,2,2,2,0,2,2,2,y^{(1)}_3,2,2,2,0,\ldots) \\
+                &\;\;\vdots\\
                 \vec k^{(n)}(y) &= (\mathbf{0,-4},x_1^n,x_2^n,x_3^n,\ldots)\\
                 & \text{with } x_i^n =
                 \begin{cases}
@@ -160,38 +175,45 @@ The license allows for commercial use.
             \end{split}
             \end{equation}$$
 
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;Observe that with this method, $\vec k^{(n)}(y)$ is an encoding for the node $\left(y^{(m)}\right)_{m\leq n}$,
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;Observe that with this method, $\vec k^{(n)}(y)$ is an encoding for the initial segment $\left(y^{(m)}\right)_{m\leq n}$,
                 such that the coordinates equal to $\pm 1$ encode the last element $y^{(n)}$, while the coordinates equal
-                to $\pm 2$ encode all previous elements $y^{(m)}$ for $m&lt; n$. The encoding of the $n$th element of $y$ is located at the the $x_i^n$ entries
-                where $i \equiv 0 \mod 2^{n+1}$. This ensures that all the information fits into $\vec k^{(n)}(y)$ and nothing is discarded.
-                In that way, the square coordinates contain both information about the entire initial segment travelled as
+                to $\pm 2$ encode all previous elements $y^{(m)}$ for $m&lt; n$. The encoding of the $n$th element of $y$ is located at the entries $x_i^n$
+                with $i \equiv 0 \mod 2^{n+1}$. This ensures that all the information fits into $\vec k^{(n)}(y)$ and nothing is discarded.
+                In this way, the square coordinates contain both information about the entire initial segment travelled as
                 well as about what the last move was.
             </p>
             
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;We will now confirm that the squares $\vec k$ have the desired structure of a tree.
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;We will now confirm that the newly defined squares have the desired structure of a tree when traversed by a king.
                 Let $y=\left(y^{(n)}\right)_{n\in\mathbb{N}}$ and $y'=\left(y'^{(n)}\right)_{n\in\mathbb{N}}$ be branches like above and let
-                $n,m\in\mathbb{N}$ be integers that we use to measure the depth level of a node in the tree, i.e. its distance to the root node.
-                First of all, note that $|n-m|>1$ implies $|x_{2^{n+1}}^n - {x'}_{2^{n+1}}^m| > 1$, since one of these two coordinates is $0$, while the other is $\pm 2$.
-                This implies $||\vec k^{(n)}(y) - \vec k^{(m)}(y')||_\infty > 1$, i.e. all squares that are more than one level apart are not adjacent in the sup norm.
-                Furthermore, $y^{(n)}\neq y'^{(n)}$ implies $\exists i\in\mathbb{N}: y^{(n)}_i \neq y'^{(n)}_i$, which implies $|x^n_{i2^{n+1}} - x'^n_{i2^{n+1}}| > 1$,
-                since one of these two coordinates is equal to $1$ and the other equal to $-1$. Thus, $||\vec k^{(n)}(y) - \vec k^{(n)}(y')||_\infty > 1$, and we
-                have shown that no two squares on the same level of the tree are adjacent. Finally, $\vec k^{(n)}(y)$ is adjacent to $\vec k^{(n+1)}(y')$ if and only
-                if $\left(y^{(m)}\right)_{m\leq n} = \left(y'^{(m)}\right)_{m\leq n}$, because otherwise there is at least one coordinate with index $i$ among the two
-                squares encoding the history of $y,y'$ up to the level $n$ such that $|x^n_i-x'^{n+1}_i|>1$. All in all, we have shown that any two squares $\vec k^{(n)}(y)$
-                and $\vec k^{(m)}(y')$ are adjacent if and only if the corresponding nodes are adjacent in the full tree. In short, it was possible to fit a continuum
-                amount of mutually non-adjacent successor nodes at every node on the chess board, since the unit ball in infinite dimensions is not compact.
+                $n,m\in\mathbb{N}$. We need to prove that
+                any two squares $\vec k^{(n)}(y)$ and $\vec k^{(m)}(y')$ are adjacent in the $||\cdot||_\infty$ norm if and only if the corresponding nodes
+                are adjacent in the full tree. This suffices
+                to show that a king cannot move undesirably between branches or unconnected nodes.
             </p>
 
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;We have embedded the desired tree-like structure into the chessboard, but now we need to make sure that the black king is
-                pushed along the correct path of any given tree and cannot ever deviate from the correct squares.
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;First of all, note that $|n-m|>1$ implies $|x_{2^{n+1}}^n - {x'}_{2^{n+1}}^m| > 1$, since one of these two coordinates is $0$,
+                while the other is $\pm 2$.
+                This implies $||\vec k^{(n)}(y) - \vec k^{(m)}(y')||_\infty > 1$, i.e. all squares that are more than one level apart are not adjacent in the $\sup$ norm.
+                Furthermore, $y^{(n)}\neq y'^{(n)}$ implies $\exists i\in\mathbb{N}: y^{(n)}_i \neq y'^{(n)}_i$, which implies $|x^n_{i2^{n+1}} - x'^n_{i2^{n+1}}| > 1$,
+                since one of these two coordinates is equal to $1$ and the other equal to $-1$. Thus, $||\vec k^{(n)}(y) - \vec k^{(n)}(y')||_\infty > 1$, and we
+                have shown that no two squares on the same level of the tree are adjacent. Moroever, $\vec k^{(n)}(y)$ is adjacent to $\vec k^{(n+1)}(y')$ if and only
+                if $\left(y^{(m)}\right)_{m\leq n} = \left(y'^{(m)}\right)_{m\leq n}$, because otherwise there is at least one coordinate with index $i$ among the two
+                squares encoding the history of $y,y'$ up to the level $n$ such that $|x^n_i-x'^{n+1}_i|>1$. Finally, for similar reasons to the above,
+                note that $\vec k^{(-2)}$ is only adjacent to
+                $\vec k^{(-1)}$, which in turn is only adjacent to $\vec k^{(0)}$.
+                This concludes the argument on the embedding.
+            </p>
+
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;Having embedded the desired tree-like structure into the chessboard, we now need to demonstrate that the black king can be
+                confined into moving along any given tree in such a way that he cannot ever deviate from the correct squares.
                 This is achieved via the configurations shown in figure <a href="#8x8-image">1</a>. All these configurations are two-dimensional slices of the chessboard,
                 where all but the first two coordinates $(\mathbf{p,q})$ are being held constant. Now let $T\subseteq \left( 2^\omega \right)^\omega$ be an arbitrary nonempty tree.
-                For every $n\in\mathbb{N}$ and every non-terminal node $y$ of $T$, we place the "open passage" configuration (figure <a href="#8x8-image">1a</a>) around
-                coordinates $\vec k^{(n)}(y)$, by holding all but the first two coordinates $(\mathbf{p,q})$ constant. We also place the "open passage" configuration
+                For every $n\in\mathbb{N}$ and every non-terminal node $y$ of $T$, we place the "open passage" configuration (figure <a href="#8x8-image">1a</a>) into the
+                2D slice that contains square $\vec k^{(n)}(y)$ and is parallel to the $(\mathbf{p,q})$-plane. We also place the "open passage" configuration
                 around coordinates $\vec k^{(-2)}$, $\vec k^{(-1)}$ and $\vec k^{(0)}$ in the same way. The white king is placed on square $\vec k^{(-2)}$ instead of
                 a pawn and the black king is placed on square $\vec k^{(0)}$ instead of a pawn. Similarly, for every $n\in\mathbb{N}$ and every terminal leaf node $y$ of $T$,
                 we place the "end trap" configuration (figure <a href="#8x8-image">1c</a>) around coordinates $\vec k^{(n)}(y)$ in the same way. Finally, all other two-dimensional
-                slices $(\mathbf{p,q})$ are filled up with the "closed passage" configuration (figure <a href="#8x8-image">1b</a>).
+                slices parallel to the $(\mathbf{p,q})$-plane are filled up with the "closed passage" configuration (figure <a href="#8x8-image">1b</a>).
             </p>
 
             <img src="img/8x8.png" class="idc-image" id="8x8-image" align="center">
@@ -223,7 +245,7 @@ The license allows for commercial use.
                 to capture the undefended white pawn on $(\mathbf{0,-2})$, leading to immediate checkmate via rook to $(\mathbf{0,3})$.
             </p>
 
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;This chess game is exactly equivalent to <em>climbing-through-$T$</em>, since every single move by Black
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;This chess game is exactly equivalent to <em>climbing-through-$T$</em> under optimal play by White, since every single move by Black
                 through the nodes of the tree $T$ is exactly mirrored by the moves of the black king on the chess board.
                 The game ends with White's victory if and only if Black is forced to a leaf node of the tree, or equivalently, an end trap slice
                 on the chess board. Since the tree $T\subseteq \left( 2^\omega \right)^\omega$ was arbitrary, this concludes the proof of theorem <a href="#theorem-main">1</a>
@@ -234,23 +256,29 @@ The license allows for commercial use.
 
             <p>&nbsp;&nbsp;&nbsp;&nbsp;The $3\times 3\times 3 \ldots$ case is the smallest nontrivial case, since two kings cannot fit into
                 any chessboard of sidelength $2$, as they will always be adjacent to each other. In this section, we will use the convention
-                that given the coordinate vector $\vec k=(\mathbf{p,q_1,q_2},x_1,x_2,x_3\ldots)$, its first entry $\mathbf p$ stands for the position
+                that given the coordinate vector $\vec k=(\mathbf{p,q_1,q_2},x_1,p_1,x_2,p_2,x_3,p_3,\ldots)$, its first entry $\mathbf p$ stands for the position
                 along the principal axis, while all the coordinates range from $-1$ to $1$ in every dimension. Once again, we consider how to embed the full
                 tree $\left( 2^\omega \right)^\omega$ into the chessboard by describing the placement of its nodes as squares on the chessboard.
                 Because we are limited to only three squares along every axis, this will be slightly more complicated than in the $8\times 8\times 8 \ldots$ case.
-                Given a sequence $\left(y^{(n)}\right)_{n\in\mathbb{N}}$ of elements $y^{(n)}\in \{-1,1\}^\mathbb{N}$ such that
-                $y^{(n)} = \left( y^{(n)}_1, y^{(n)}_2, y^{(n)}_3, \ldots \right)$, the corresponding branch $y = (y^{(n)})_{n\in\mathbb{N}}$ of the full tree
-                $\left(2^\omega\right)^\omega$ is constructed as follows.
+                The initialization squares of the tree are defined, similiarly to above,
             </p>
-
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;We recursively define the squares</p>
 
             $$\begin{equation}
             \begin{split}
                 \vec k^{(-2)} &= (\mathbf{-1,-1,-1},1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,\ldots) \\
                 \vec k^{(-1)} &= (\mathbf{-1,-1,-1},0,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,\ldots) \\
                 \vec k^{(0)} &= (\mathbf{-1,-1,-1},-1,0,0,0,1,0,1,0,1,0,1,0,1,0,1,0,\ldots) \\
+            \end{split}
+            \end{equation}$$
+
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;Given a sequence $\left(y^{(n)}\right)_{n\in\mathbb{N}}$ of elements $y^{(n)}\in \{-1,1\}^\mathbb{N}$ such that
+                $y^{(n)} = \left( y^{(n)}_1, y^{(n)}_2, y^{(n)}_3, \ldots \right)$, the corresponding branch $y = (y^{(n)})_{n\in\mathbb{N}}$ of the full tree
+                $\left(2^\omega\right)^\omega$ is constructed as follows. We recursively define the squares</p>
+
+            $$\begin{equation}
+            \begin{split}
                 \vec k^{(1)}(y) &= (\mathbf{-1,-1,-1},-1,y^{(1)}_1,-1,0,0,y^{(1)}_2,1,0,1,y^{(1)}_2,1,0,1,y^{(1)}_3,1,0,\ldots) \\
+                &\;\;\vdots\\
                 \vec k^{(n)}(y) &= (\mathbf{-1,-1,-1},p_1^n,x_1^n,p_2^n,x_2^n,p_3^n,x_3^n,\ldots)\\
                 & \text{with } x_i^n =
                 \begin{cases}
@@ -274,25 +302,33 @@ The license allows for commercial use.
                 current level $n$ within the tree.
             </p>
 
-            <p>&nbsp;&nbsp;&nbsp;&nbsp;Given branches $y=\left(y^{(n)}\right)_{n\in\mathbb{N}}$ and $y'=\left(y'^{(n)}\right)_{n\in\mathbb{N}}$ and
-                levels $n,m\in\mathbb{N}$ with $m>n$, we note that $|m-n|>1$ immediately implies $||\vec k^{(n)}(y) - \vec k^{(m)}(y')||_\infty > 1$ because
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;Once again we need to confirm that the newly defined squares have the desired structure of a tree when traversed by a king.
+                Given branches $y=\left(y^{(n)}\right)_{n\in\mathbb{N}}$ and $y'=\left(y'^{(n)}\right)_{n\in\mathbb{N}}$ and
+                levels $n,m\in\mathbb{N}$ with $m>n$, we need to prove that
+                any two squares are adjacent in the $||\cdot||_\infty$ norm if and only if the corresponding nodes
+                are adjacent in the full tree.
+            </p>
+            
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;First off, we note that $|m-n|>1$ immediately implies $||\vec k^{(n)}(y) - \vec k^{(m)}(y')||_\infty > 1$ because
                 of $|p^n_{n+1} - p^m_{n+1}| = |1-(-1)| = 2$. Thus, the $p_i^n$ entries guarantee that all squares more than one level apart in the
                 tree are not adjacent in the sup norm. Furthermore, $y^{(n)}\neq y'^{(n)}$ implies $\exists i\in\mathbb{N}: y^{(n)}_i \neq y'^{(n)}_i$, which
                 implies $|x^n_{i2^{n-1}} - x'^n_{i2^{n-1}}| = 2$, since one of these two coordinates is equal to $1$ and the other equal to $-1$.
                 Thus, $||\vec k^{(n)}(y) - \vec k^{(n)}(y')||_\infty > 1$, and we have shown that no two squares on the same level of the tree are adjacent.
                 Finally, as before, $\vec k^{(n)}(y)$ is adjacent to $\vec k^{(n+1)}(y')$ if and only if $\left(y^{(m)}\right)_{m\leq n} = \left(y'^{(m)}\right)_{m\leq n}$,
                 because otherwise there is at least one coordinate with index $i$ among the two squares encoding the history of $y,y'$ up to the
-                level $n$ such that $|x^n_i-x'^{n+1}_i|=2$. All in all, we have shown that any two squares $\vec k^{(n)}(y)$ and $\vec k^{(m)}(y')$ are adjacent
-                if and only if the corresponding nodes are adjacent in the full tree.
+                level $n$ such that $|x^n_i-x'^{n+1}_i|=2$. Once again, the initial square $\vec k^{(-2)}$ is only adjacent to
+                $\vec k^{(-1)}$, which in turn is only adjacent to $\vec k^{(0)}$, which concludes the argument on the embedding.
             </p>
 
             <p>&nbsp;&nbsp;&nbsp;&nbsp;Embedding an arbitrary tree $T\subseteq \left( 2^\omega \right)^\omega$ into the chessboard
-                works exactly like in the previous case, namely placing down open passages at $\vec k^{(-2)}$, $\vec k^{(-1)}$ and at
-                non-terminal node coordinates, end traps at terminal nodes, closed passages everywhere else and initializing the kings at $\vec k^{(-2)}$
-                and $\vec k^{(0)}$ respectively. The only difference this time is the specific slice layout of these three building blocks,
-                namely this time we have to use three dimensional slices of the chess board, as shown in figure <a href="#3x3-image">2</a>.
+                works like in the previous case. The only difference is the specific slice layout of the three building blocks,
+                which are three dimensional slices of the chess board this time, as shown in figure <a href="#3x3-image">2</a>.
                 Once again, these slices depict the position in the first three coordinates, with the top-down axis between the $3\times 3$
                 boards being the principal axis, while all other coordinates are kept constant.
+                As before, we place down the open passages at $\vec k^{(-2)}$, $\vec k^{(-1)}$ and at
+                non-terminal node coordinates along the $(\mathbf{p,q_1,q_2})$-plane, the end traps at terminal nodesa and closed passages everywhere else.
+                We again initialize the kings at $\vec k^{(-2)}$
+                and $\vec k^{(0)}$ respectively.
             </p>
 
             <p>&nbsp;&nbsp;&nbsp;&nbsp;As before, the position is very claustrophobic. The closed passage is completely
@@ -354,7 +390,7 @@ The license allows for commercial use.
 
         <hr>
 
-        <p>Copyright Disclaimer: The current work by Andreas Tsevas and Matthew Bolan is licensed under
+        <p>Copyright Disclaimer: The current work by Matthew Bolan and Andreas Tsevas is licensed under
             <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0: Creative Commons Attribution</a>. You are free to distribute, remix, adapt, and
             build upon the material in any medium or format, so long as attribution is given to the creators. The license allows for commercial use.
         </p>
