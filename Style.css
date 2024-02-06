@@ -59,6 +59,11 @@
 }
 
 .MathJax_Display, .MJXc-display, .MathJax_SVG_Display {
-    overflow-x: scroll;
+    overflow-x: auto;
     overflow-y: hidden;
+}
+
+.long-math{
+    overflow-x: auto;
+    white-space: nowrap;
 }

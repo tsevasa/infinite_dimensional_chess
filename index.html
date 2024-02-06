@@ -144,6 +144,7 @@ The license allows for commercial use.
             <p>&nbsp;&nbsp;&nbsp;&nbsp;First we define the initialization squares
             </p>
 
+            <div class="long-math">
             $$\begin{equation}
             \begin{split}
                 \vec k^{(-2)} &= (\mathbf{0,-4},0,0,0,0,0,0,0,0,0,0,0,0,\ldots) \\
@@ -151,6 +152,7 @@ The license allows for commercial use.
                 \vec k^{(0)} &= (\mathbf{0,-4},2,1,2,0,2,1,2,0,2,1,2,0,\ldots) \\
             \end{split}
             \end{equation}$$
+            </div>
 
             <p>&nbsp;&nbsp;&nbsp;&nbsp;where the white king starts on $\vec k^{(-2)}$ and the black king starts on the root node of the tree, $\vec k^{(0)}$.
             </p>
@@ -159,6 +161,7 @@ The license allows for commercial use.
                 elements $y^{(n)}\in \{-1,1\}^\mathbb{N}$ such that $y^{(n)} = \left( y^{(n)}_1, y^{(n)}_2, y^{(n)}_3, \ldots \right)$, the corresponding branch
                 $y = (y^{(n)})_{n\in\mathbb{N}}$ of the full tree $\left(2^\omega\right)^\omega$ is constructed as follows. We recursively define the squares</p>
 
+            <div class="long-math">
             $$\begin{equation}
             \begin{split}
                 \vec k^{(1)}(y) &= (\mathbf{0,-4},2,2,2,y^{(1)}_1,2,2,2,0,2,2,2,y^{(1)}_2,2,2,2,0,2,2,2,y^{(1)}_3,2,2,2,0,\ldots) \\
@@ -173,6 +176,7 @@ The license allows for commercial use.
                 \end{cases}
             \end{split}
             \end{equation}$$
+            </div>
 
             <p>&nbsp;&nbsp;&nbsp;&nbsp;Observe that with this method, $\vec k^{(n)}(y)$ is an encoding for the initial segment $\left(y^{(m)}\right)_{m\leq n}$,
                 such that the coordinates equal to $\pm 1$ encode the last element $y^{(n)}$, while the coordinates equal
@@ -266,6 +270,7 @@ The license allows for commercial use.
                 The initialization squares of the tree are defined, similiarly to above,
             </p>
 
+            <div class="long-math">
             $$\begin{equation}
             \begin{split}
                 \vec k^{(-2)} &= (\mathbf{-1,-1,-1},1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,\ldots) \\
@@ -273,11 +278,13 @@ The license allows for commercial use.
                 \vec k^{(0)} &= (\mathbf{-1,-1,-1},-1,0,0,0,1,0,1,0,1,0,1,0,1,0,1,0,\ldots).
             \end{split}
             \end{equation}$$
+            </div>
 
             <p>&nbsp;&nbsp;&nbsp;&nbsp;Given a sequence $\left(y^{(n)}\right)_{n\in\mathbb{N}}$ of elements $y^{(n)}\in \{-1,1\}^\mathbb{N}$ such that
                 $y^{(n)} = \left( y^{(n)}_1, y^{(n)}_2, y^{(n)}_3, \ldots \right)$, the corresponding branch $y = (y^{(n)})_{n\in\mathbb{N}}$ of the full tree
                 $\left(2^\omega\right)^\omega$ is constructed as follows. We recursively define the squares</p>
 
+            <div class="long-math">
             $$\begin{equation}
             \begin{split}
                 \vec k^{(1)}(y) &= (\mathbf{-1,-1,-1},-1,y^{(1)}_1,-1,0,0,y^{(1)}_2,1,0,1,y^{(1)}_3,1,0,1,y^{(1)}_4,1,0,\ldots) \\
@@ -297,6 +304,7 @@ The license allows for commercial use.
                 \end{cases}
             \end{split}
             \end{equation}$$
+            </div>
 
             <p>&nbsp;&nbsp;&nbsp;&nbsp;Once again, the $x_i^n$ encode the entire node $\left(y^{(m)}\right)_{m\leq n}$,
                 with every subsequent entry $y^{(n)}$ being stretched further apart in the square coordinates, so that they all fit. However, due to the limited
