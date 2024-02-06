@@ -171,7 +171,7 @@ The license allows for commercial use.
                 & \text{with } x_i^n =
                 \begin{cases}
                     0 &, \text{ if } i \equiv 0 \mod 2^{n+2} \\[4pt]
-                    y^{(n)}_{i/2^{n+1}} &, \text{ if } i \equiv 0 \mod 2^{n+1} \\[4pt]
+                    y^{(n)}_{\lceil i/2^{n+2} \rceil} &, \text{ if } i \equiv 2^{n+1} \mod 2^{n+2} \\[4pt]
                     2 &, \text{ if } i \not\equiv 0 \mod 2^{n+1} \;\;\text{ and }\;\; x_i^{n-1} &gt; 0 \\[4pt]
                     -2 &, \text{ if } i \not\equiv 0 \mod 2^{n+1} \;\;\text{ and }\;\; x_i^{n-1} &lt; 0
                 \end{cases}
@@ -182,7 +182,7 @@ The license allows for commercial use.
             <p>&nbsp;&nbsp;&nbsp;&nbsp;Observe that with this method, $\vec k^{(n)}(y)$ is an encoding for the initial segment $\left(y^{(m)}\right)_{m\leq n}$,
                 such that the coordinates equal to $\pm 1$ encode the last element $y^{(n)}$, while the coordinates equal
                 to $\pm 2$ encode all previous elements $y^{(m)}$ for $m&lt; n$. The encoding of the $n$th element of $y$ is located at the entries $x_i^n$
-                with $i \equiv 0 \mod 2^{n+1}$. This ensures that all the information fits into $\vec k^{(n)}(y)$ and nothing is discarded.
+                with $i \equiv 2^{n+1} \mod 2^{n+2}$. This ensures that all the information fits into $\vec k^{(n)}(y)$ and nothing is discarded.
                 In this way, the square coordinates contain both information about the entire initial segment travelled as
                 well as about what the last move was.
             </p>
@@ -198,7 +198,8 @@ The license allows for commercial use.
             <p>&nbsp;&nbsp;&nbsp;&nbsp;First of all, note that $|n-m|>1$ implies $|x_{2^{n+1}}^n - {x'}_{2^{n+1}}^m| > 1$, since one of these two coordinates is $0$,
                 while the other is $\pm 2$.
                 This implies $||\vec k^{(n)}(y) - \vec k^{(m)}(y')||_\infty > 1$, i.e. all squares that are more than one level apart are not adjacent in the $\sup$ norm.
-                Furthermore, $y^{(n)}\neq y'^{(n)}$ implies $\exists i\in\mathbb{N}: y^{(n)}_i \neq y'^{(n)}_i$, which implies $|x^n_{i2^{n+1}} - x'^n_{i2^{n+1}}| > 1$,
+                Furthermore, $y^{(n)}\neq y'^{(n)}$ implies $\exists i\in\mathbb{N}: y^{(n)}_i \neq y'^{(n)}_i$,
+                which implies $|x^n_{\ell} - x'^n_{\ell}| > 1$ for $\ell=i2^{n+2}-2^{n+1}$,
                 since one of these two coordinates is equal to $1$ and the other equal to $-1$. Thus, $||\vec k^{(n)}(y) - \vec k^{(n)}(y')||_\infty > 1$, and we
                 have shown that no two squares on the same level of the tree are adjacent. Moroever, $\vec k^{(n)}(y)$ is adjacent to $\vec k^{(n+1)}(y')$ if and only
                 if $\left(y^{(m)}\right)_{m\leq n} = \left(y'^{(m)}\right)_{m\leq n}$, because otherwise there is at least one coordinate with index $i$ among the two
@@ -294,7 +295,7 @@ The license allows for commercial use.
                 & \text{with } x_i^n =
                 \begin{cases}
                     0 &, \text{ if } i \equiv 0 \mod 2^{n} \\[4pt]
-                    y^{(n)}_{i/2^{n-1}} &, \text{ if } i \equiv 0 \mod 2^{n-1} \\[4pt]
+                    y^{(n)}_{\lceil i/2^{n} \rceil} &, \text{ if } i \equiv 2^{n-1} \mod 2^{n} \\[4pt]
                     x_i^{n-1} &, \text{ if } i \not\equiv 0 \mod 2^{n-1}
                 \end{cases}\\
                 & \text{and } p_i^n =
@@ -324,7 +325,7 @@ The license allows for commercial use.
             <p>&nbsp;&nbsp;&nbsp;&nbsp;First off, we note that $|m-n|>1$ immediately implies $||\vec k^{(n)}(y) - \vec k^{(m)}(y')||_\infty > 1$ because
                 of $|p^n_{n+1} - p^m_{n+1}| = |1-(-1)| = 2$. Thus, the $p_i^n$ entries guarantee that all squares more than one level apart in the
                 tree are not adjacent in the sup norm. Furthermore, $y^{(n)}\neq y'^{(n)}$ implies $\exists i\in\mathbb{N}: y^{(n)}_i \neq y'^{(n)}_i$, which
-                implies $|x^n_{i2^{n-1}} - x'^n_{i2^{n-1}}| = 2$, since one of these two coordinates is equal to $1$ and the other equal to $-1$.
+                implies $|x^n_{\ell} - x'^n_{\ell}| = 2$ for $\ell = i2^{n}-2^{n-1}$, since one of these two coordinates is equal to $1$ and the other equal to $-1$.
                 Thus, $||\vec k^{(n)}(y) - \vec k^{(n)}(y')||_\infty > 1$, and we have shown that no two squares on the same level of the tree are adjacent.
                 Finally, as before, $\vec k^{(n)}(y)$ is adjacent to $\vec k^{(n+1)}(y')$ if and only if $\left(y^{(m)}\right)_{m\leq n} = \left(y'^{(m)}\right)_{m\leq n}$,
                 because otherwise there is at least one coordinate with index $i$ among the two squares encoding the history of $y,y'$ up to the
