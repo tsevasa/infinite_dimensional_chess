@@ -78,8 +78,9 @@ The license allows for commercial use.
                 but Black can choose to delay mate by any unbounded amount of moves, as shown in <a href="#MO2011Checkmate">[1]</a> <a href="#evans2013transfinite">[2]</a>.
                 This led to the consideration of game values, which are defined for chess positions inductively as follows:
                 If Black is in checkmate, the position has game value $0$. Otherwise if Black is to move and all available moves lead to a position with an assigned game value,
-                then the position has game value equal to the ordinal supremum of the game values of all these options. Finally, if White is to move and can move to some position
-                with a game value, then the position has as a game value equal to the minimum of all available game values plus one. The fundamental observation of game values
+                then the position has game value equal to the ordinal supremum of the game values of all these options. Finally, if White is to move
+                and can move to at least one position
+                with a game value, then the current position has a game value equal to the minimum of all available game values plus one. The fundamental observation of game values
                 in open games is that the positions having an ordinal game value are precisely the positions that are winning for White.
                 This justifies their use as a generalized version of the "mate-in-$n$" notion in finite chess.</p>
 
